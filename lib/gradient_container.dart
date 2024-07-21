@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:dice_roller/my_widgets/custom_text.dart';
+import 'package:dice_roller/my_widgets/another_custom_text.dart';
+
+var startAlignment = Alignment.topLeft;
+var endAlignment = Alignment.bottomRight;
+
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
 
@@ -7,25 +13,23 @@ class GradientContainer extends StatelessWidget {
   Widget build(context) {
     return Container(
       // ! 👉 background gradient CONFIG START
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: const [
             Color.fromARGB(255, 80, 10, 113),
             Color.fromARGB(255, 0, 0, 0),
           ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          begin: startAlignment,
+          end: endAlignment,
         ),
       ),
       // ! background gradient CONFIG END
       child: const Center(
-        // ! text CONFIG START
-        child: Text(
-          'Hello World !',
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 44),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [CustomText(), AnotherCustomText()],
         ),
-        // ! text CONFIG END
       ),
     );
   }
